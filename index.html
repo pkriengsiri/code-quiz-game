@@ -17,13 +17,24 @@
   </head>
 
   <body>
-
+    <!-- // Navbar -->
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="./highscores.html">View Highscores</a>
           <p class="lead me-2">Timer: <span id="timer">0</span></p>
         </div>
       </nav>
+
+      <!-- Quiz Content -->
+      <main class="container-sm my-5 bg-light" id="quiz-container">
+          <div class="row">
+              <div class="col p-3 text-center" id="quiz-content">
+                  <h1>Coding Quiz Challenge</h1>
+                  <p>Try to answer the following code-related questions within the time limit.  Keep in mind that incorrect answers will penalize your score/ Time by ten seconds.</p>
+                  <button type="button" class="btn btn-primary" id="start-button">Start Quiz</button>
+              </div>
+          </div>
+      </main>
 
 
     <script src="./assets/scripts/script.js" async defer></script>
