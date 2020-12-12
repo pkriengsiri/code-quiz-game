@@ -1,3 +1,7 @@
 #quiz-container {
     height: 600px;
 }
+
+#nav-left {
+    margin: 0px;
+}

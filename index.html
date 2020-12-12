@@ -16,17 +16,17 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
 
-  <body>
+  <body class="bg-secondary" >
     <!-- // Navbar -->
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="./highscores.html">View Highscores</a>
-        <p class="lead me-2">Timer: <span id="timer">0</span></p>
+        <p class="navbar-brand me-2" id="nav-left">Timer: <span id="timer">0</span></p>
       </div>
     </nav>
 
     <!-- Main Content -->
-    <main class="container-sm my-5 bg-light" id="quiz-container">
+    <main class="container-sm my-3 bg-light" id="quiz-container">
       <div class="row">
         <div class="col">
           <div class="row p-3 text-center" id="start-content">
@@ -40,8 +40,8 @@
               Start Quiz
             </button>
           </div>
-          <div class="row pt-3 px-5 text-right" id="quiz-content"></div>
-          <div class="row pt-3 px-5 text-right" id="submit-score" hidden>
+          <div class="row py-3 px-5 text-right" id="quiz-content"></div>
+          <div class="row py-3 px-5 text-right" id="submit-score" hidden>
               <h1>All Done!</h1>
               <p>Your final score is <span id="final-score"></span></p>
               <form class = "row row-cols-lg-auto" id="user-initials">

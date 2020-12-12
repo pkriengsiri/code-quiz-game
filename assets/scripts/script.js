@@ -115,7 +115,7 @@ function checkAnswer(answer) {
 }
 
 function displayResult(result) {
-
+    //unhide the section
     answerResultSectionEl.hidden = false;
 
     if(result) {
@@ -132,7 +132,7 @@ function displayResult(result) {
           }
 
         resultTimer--;
-        
+
       }, 1000);
 
     resultTimer = 1;
@@ -171,3 +171,11 @@ function endQuiz() {
 
 startButtonEl.addEventListener("click", startQuiz);
 quizContentEl.addEventListener("click",processQuizAnswer);
+
+// Todo
+// Add event listener for submit button
+// Store initials and score in local storage
+//  * remember values in local storage are string
+//  * concatenate with delimiter
+// Prevent default form behavior on submit
+// Create high scores page
