@@ -60,8 +60,8 @@ function startQuiz() {
 
 function startClock() {
     var timerInterval = setInterval(function() {
-      secondsLeft--;
-      timerEl.textContent = secondsLeft;
+        timerEl.textContent = secondsLeft;
+        secondsLeft--;
   
       if(endOfQuiz) {
         clearInterval(timerInterval);
