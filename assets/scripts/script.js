@@ -112,7 +112,7 @@ function showQuizQuestion(index) {
     var buttonEl = document.createElement("button");
     var questionNumber = i + 1;
     buttonEl.classList.add("btn");
-    buttonEl.classList.add("btn-primary");
+    buttonEl.classList.add("btn-info");
     buttonEl.textContent =
       questionNumber + ". " + questionsArray[index].answers[i];
     liEl.append(buttonEl);

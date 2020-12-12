@@ -21,7 +21,8 @@ function displayScores() {
         var pair = scoresArray[i].split(" ");
         console.log(scoresArray[i]);
         console.log(pair);
-        liEl.textContent = pair[1]+" - "+pair[0];
+        var questionNum = i+1;
+        liEl.textContent = questionNum+". "+pair[1]+" - "+pair[0];
         liEl.classList.add("list-group-item");
         liEl.classList.add("list-group-item-action");
         liEl.classList.add("list-group-item-primary");
