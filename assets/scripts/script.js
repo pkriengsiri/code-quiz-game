@@ -2,6 +2,7 @@
 var startButtonEl = document.getElementById("start-button");
 var startContentEl = document.getElementById("start-content");
 var quizContentEl = document.getElementById("quiz-content");
+var timerEl = document.getElementById("timer");
 
 // JS Variables
 //quiz questions
@@ -37,6 +38,8 @@ var quizQuestion2 = {
 
 var questionsArray = [quizQuestion1,quizQuestion2,quizQuestion3,quizQuestion4,quizQuestion5]; // array of quiz Questions
 var questionIndex = 0; //tracks the current question
+var secondsLeft = 150; //the time left in the quiz, starts at 150
+var endOfQuiz = false; // tracks if all quiz questions have been answered
 
 // Function Definitions
 
@@ -45,8 +48,21 @@ function startQuiz() {
   startContentEl.innerHTML = "";
   startContentEl.classList.remove("p-3");
   // Change center-aligned text to right-aligned
+  startClock();
   showQuizQuestion(0);
 }
+
+function startClock() {
+    var timerInterval = setInterval(function() {
+      secondsLeft--;
+      timerEl.textContent = secondsLeft;
+  
+      if(endOfQuiz) {
+        clearInterval(timerInterval);
+      }
+  
+    }, 1000);
+  }
 
 function showQuizQuestion(index) {
   //clear the box
@@ -79,9 +95,14 @@ function showQuizQuestion(index) {
 
 function checkAnswer(answer) {
     if(answer === questionsArray[questionIndex].correctAnswer) {
+        //display correct
         console.log("correct answer for question index "+questionIndex);
     } else {
+        //display incorrect
         console.log("incorrect answer for question index "+questionIndex);
+        //subtract 10 points
+        secondsLeft = secondsLeft - 10;
+
     }
 }
 
@@ -94,6 +115,7 @@ function processQuizAnswer(event) {
         // Condition to check if this is the last question
         if(questionIndex === questionsArray.length -1) {
             checkAnswer(answer);
+            endOfQuiz = true;
             // go to the final score tally
             alert("end of quiz");
         } else {
