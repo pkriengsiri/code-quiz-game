@@ -92,6 +92,8 @@ function showQuizQuestion(index) {
     //Create button
     var buttonEl = document.createElement("button");
     var questionNumber = i+1;
+    buttonEl.classList.add("btn");
+    buttonEl.classList.add("btn-primary");
     buttonEl.textContent = questionNumber+". "+questionsArray[index].answers[i];
     liEl.append(buttonEl);
   }
@@ -111,16 +113,15 @@ function checkAnswer(answer) {
 }
 
 function displayResult(result) {
-    
-    var timerInterval = setInterval(function() {
-        
-        answerResultSectionEl.hidden = false;
 
-          if(result) {
-            answerResultEl.textContent ="The previous answer was correct!"
-        } else {
-            answerResultEl.textContent ="The previous answer was incorrect!  Subtracted 10 seconds from your score!!"
-        }
+    answerResultSectionEl.hidden = false;
+
+    if(result) {
+      answerResultEl.textContent ="The previous answer was correct!"
+  } else {
+      answerResultEl.textContent ="The previous answer was incorrect!  Subtracted 10 seconds from your score!!"
+  }
+    var timerInterval = setInterval(function() {
 
         if(resultTimer === 0) {
             clearInterval(timerInterval);
