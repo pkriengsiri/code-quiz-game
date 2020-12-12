@@ -20,8 +20,12 @@
     <!-- // Navbar -->
     <nav class="navbar navbar-light bg-primary">
       <div class="container-fluid">
-        <a class="navbar-brand text-white" href="./highscores.html">View Highscores</a>
-        <p class="navbar-brand me-2 text-white" id="nav-left">Timer: <span id="timer">0</span></p>
+        <a class="navbar-brand text-white" href="./highscores.html"
+          >View Highscores</a
+        >
+        <p class="navbar-brand me-2 text-white" id="nav-left">
+          Timer: <span id="timer">0</span>
+        </p>
       </div>
     </nav>
 
@@ -36,26 +40,43 @@
               limit. Keep in mind that incorrect answers will penalize your
               score/ Time by ten seconds.
             </p>
-            <button type="button" class="btn btn-info" id="start-button">
-              Start Quiz
-            </button>
+            <div>
+              <button type="button" class="btn btn-info" id="start-button">
+                Start Quiz
+              </button>
+            </div>
           </div>
-          <div class="row py-3 px-5 text-right" id="quiz-content"></div>
+          <div class="row py-3 px-5 text-right" id="quiz-content">
+              
+          </div>
           <div class="row py-3 px-5 text-right" id="submit-score" hidden>
-              <h1>All Done!</h1>
-              <p>Your final score is <span id="final-score"></span></p>
-              <form class = "row row-cols-lg-auto" id="user-initials">
-                <div class="col-sm-3">
-                    <p>Please enter your initials</p>
-                </div>
-                <div class="col-sm-3">
-                    <label class="visually-hidden" for="initials-input">Initials</label>
-                    <input type="text" class="form-control" id="initials-input" placeholder="Initials">
-                </div>
-                <div class="col-sm-3">
-                    <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
-                </div>
-              </form>
+            <h1>All Done!</h1>
+            <p>Your final score is <span id="final-score"></span></p>
+            <form class="row row-cols-lg-auto" id="user-initials">
+              <div class="col-sm-3">
+                <p>Please enter your initials</p>
+              </div>
+              <div class="col-sm-3">
+                <label class="visually-hidden" for="initials-input"
+                  >Initials</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="initials-input"
+                  placeholder="Initials"
+                />
+              </div>
+              <div class="col-sm-3">
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  id="submit-button"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
           </div>
           <div class="row px-5 text-right" id="answer-result-content" hidden>
             <hr />

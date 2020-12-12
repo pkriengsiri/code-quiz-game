@@ -81,7 +81,7 @@ var quizQuestion6 = {
     question:
       "The starting index value for an array in JavaScript is ______ :",
     answers: ["null", "void", "0", "1"],
-    correctAnswer: "console log",
+    correctAnswer: "0",
   };
 
 var questionsArray = [
