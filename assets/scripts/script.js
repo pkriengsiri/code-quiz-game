@@ -12,7 +12,6 @@ var submitScoreButtonEl = document.getElementById("submit-score");
 
 
 // JS Variables
-//quiz questions
 var quizQuestion1 = {
   question: "Commonly used data types DO NOT include",
   answers: ["strings", "booleans", "alerts", "numbers"],
@@ -22,7 +21,7 @@ var quizQuestion1 = {
 var quizQuestion2 = {
   question: "The condition in an if/ else statement is enclosed within ______.",
   answers: ["quotes", "curly brackets", "parenthesis", "square brackets"],
-  correctAnswer: "quotes",
+  correctAnswer: "parenthesis",
 };
 
 var quizQuestion3 = {
@@ -50,20 +49,61 @@ var quizQuestion5 = {
   correctAnswer: "console log",
 };
 
+var quizQuestion6 = {
+    question:
+      "The web API localStorage object stores keys and values in what variable type:",
+    answers: ["numbers", "arrays", "objects", "strings"],
+    correctAnswer: "strings",
+  };
+
+  var quizQuestion7 = {
+    question:
+      "The concept of assigning an event handler in dynamic content to multiple elements as opposed to a single element, then delegating to a single element upon event is known as:",
+    answers: ["batching", "event delegation", "multi-tasking", "isolation"],
+    correctAnswer: "event delegation",
+  };
+
+  var quizQuestion8 = {
+    question:
+      "The acronymic for the object representation of a webpage, DOM, stands for:",
+    answers: ["doorway opening mechanism", "digital orientation method", "document object model", "device operation manual"],
+    correctAnswer: "document object model",
+  };
+
+  var quizQuestion9 = {
+    question:
+      "Bootstrap is an example of a CSS ______ :",
+    answers: ["language", "framework", "interpreter", "console"],
+    correctAnswer: "framework",
+  };
+
+  var quizQuestion10 = {
+    question:
+      "The starting index value for an array in JavaScript is ______ :",
+    answers: ["null", "void", "0", "1"],
+    correctAnswer: "console log",
+  };
+
 var questionsArray = [
   quizQuestion1,
   quizQuestion2,
   quizQuestion3,
   quizQuestion4,
   quizQuestion5,
+  quizQuestion6,
+  quizQuestion7,
+  quizQuestion8,
+  quizQuestion9,
+  quizQuestion10
 ]; // array of quiz Questions
+
 var questionIndex = 0; //tracks the current question
-var secondsLeft = 150; //the time left in the quiz, starts at 150
+var secondsLeft = 200; //the time left in the quiz, starts at 150
 var endOfQuiz = false; // tracks if all quiz questions have been answered
 var resultTimer = 1; // number of seconds to display the answer result
-var userScore = "";
-var userInitials = "";
-var scoresArray = [];
+var userScore = ""; // stores the final user score
+var userInitials = ""; //stores the user initials
+var scoresArray = []; // stores the user initial/ score pairs so they can be used by localStorage
 
 // Function Definitions
 
@@ -193,9 +233,7 @@ function endQuiz() {
 function saveScore(event) {
     event.preventDefault();
     var userInitials = initialsInputEl.value;
-    console.log("Initials is "+userInitials);
     var finalScore = finalScoreEl.textContent;
-    console.log("Final Score is "+finalScore);
     var scoreAndInitials = finalScore + " " + userInitials;
 
     if(localStorage.getItem("saved-scores") === null) {
@@ -221,12 +259,3 @@ function saveScore(event) {
 startButtonEl.addEventListener("click", startQuiz);
 quizContentEl.addEventListener("click", processQuizAnswer);
 submitScoreButtonEl.addEventListener("submit", saveScore);
-
-// Todo
-// Add event listener for submit button
-// Store initials and score in local storage
-//  * remember values in local storage are string
-//  * concatenate with delimiter
-// Prevent default form behavior on submit
-// Create high scores page
-// Sort High Scores??
