@@ -1,3 +1,11 @@
+.container-sm {
+    background-color: #F1F1F1;
+}
+
+.navbar {
+    background-color: #FD9C0D;
+}
+
 #quiz-container {
     height: 600px;
 }
