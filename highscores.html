@@ -17,15 +17,28 @@
   </head>
 
   <body>
-
-    <nav class="navbar navbar-light bg-light">
+    <!-- // Navbar -->
+    <nav class="navbar navbar-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="./highscores.html">View Highscores</a>
-          <p class="lead me-2">Timer: <span id="timer">0</span></p>
+          <p class="navbar-brand me-2" id="nav-left">Timer: <span id="timer">0</span></p>
         </div>
       </nav>
 
+    <!-- Main Content -->
+    <main class="container-sm my-3 rounded" id="scores-container">
+        <div class="row">
+          <div class="col">
+            <div class="row p-3 text-center" id="score-content">
+              <h1>High Scores</h1>
+              <ol class="score-list"></ol>
+              <button type="submit" class="btn btn-primary" id="go-back">Go Back</button>
+              <button type="submit" class="btn btn-primary" id="reset-scores">Clear Highscores</button>
+            </div>
+          </div>
+        </div>
+      </main>
 
-    <script src="./assets/scripts/script.js" async defer></script>
+    <script src="./assets/scripts/scores.js" async defer></script>
   </body>
 </html>
