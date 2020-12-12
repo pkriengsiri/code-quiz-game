@@ -72,24 +72,33 @@ function showQuizQuestion(index) {
     //Create button
     var buttonEl = document.createElement("button");
     var questionNumber = i+1;
-    buttonEl.textContent = questionNumber+". ";
-    var spanEl = document.createElement("span");
-    spanEl.textContent = questionsArray[index].answers[i];
+    buttonEl.textContent = questionNumber+". "+questionsArray[index].answers[i];
     liEl.append(buttonEl);
-    buttonEl.append(spanEl);
   }
+}
+
+function checkAnswer(answer) {
+    if(answer === questionsArray[questionIndex].correctAnswer) {
+        console.log("correct answer for question index "+questionIndex);
+    } else {
+        console.log("incorrect answer for question index "+questionIndex);
+    }
 }
 
 function processQuizAnswer(event) {
     if (event.target.matches("button")) {
-        console.log("Clicking a quiz button");
+        console.log("Clicked on a quiz answer");
+        //Remove number from answer selection
+        var answer = event.target.textContent.substring(3);
+
         // Condition to check if this is the last question
         if(questionIndex === questionsArray.length -1) {
-            // process the answer
+            checkAnswer(answer);
             // go to the final score tally
             alert("end of quiz");
         } else {
             //process the answer
+            checkAnswer(answer);
             //display the next question
             questionIndex++;
             showQuizQuestion(questionIndex);
