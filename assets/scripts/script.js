@@ -3,6 +3,9 @@ var startButtonEl = document.getElementById("start-button");
 var startContentEl = document.getElementById("start-content");
 var quizContentEl = document.getElementById("quiz-content");
 var timerEl = document.getElementById("timer");
+var answerResultSectionEl = document.getElementById("answer-result-content");
+var answerResultEl = document.getElementById("result-text");
+
 
 // JS Variables
 //quiz questions
@@ -40,13 +43,14 @@ var questionsArray = [quizQuestion1,quizQuestion2,quizQuestion3,quizQuestion4,qu
 var questionIndex = 0; //tracks the current question
 var secondsLeft = 150; //the time left in the quiz, starts at 150
 var endOfQuiz = false; // tracks if all quiz questions have been answered
+var resultTimer = 1; // number of seconds to display the answer result
 
 // Function Definitions
 
 function startQuiz() {
   // Clear the box and remove padding
-  startContentEl.innerHTML = "";
-  startContentEl.classList.remove("p-3");
+  startContentEl.hidden = "true";
+  //startContentEl.classList.remove("p-3");
   // Change center-aligned text to right-aligned
   startClock();
   showQuizQuestion(0);
@@ -95,16 +99,42 @@ function showQuizQuestion(index) {
 
 function checkAnswer(answer) {
     if(answer === questionsArray[questionIndex].correctAnswer) {
-        //display correct
-        console.log("correct answer for question index "+questionIndex);
+        var result = true;
+        displayResult(result);
     } else {
         //display incorrect
-        console.log("incorrect answer for question index "+questionIndex);
+        var result = false;
+        displayResult(result);
         //subtract 10 points
         secondsLeft = secondsLeft - 10;
-
     }
 }
+
+function displayResult(result) {
+    
+    var timerInterval = setInterval(function() {
+        
+        answerResultSectionEl.hidden = false;
+
+          if(result) {
+            answerResultEl.textContent ="The previous answer was correct!"
+        } else {
+            answerResultEl.textContent ="The previous answer was incorrect!  Subtracted 10 seconds from your score!!"
+        }
+
+        if(resultTimer === 0) {
+            clearInterval(timerInterval);
+            answerResultSectionEl.hidden = true;
+            answerResultEl.textContent = "";
+          }
+
+        resultTimer--;
+        
+      }, 1000);
+
+    resultTimer = 1;
+}
+
 
 function processQuizAnswer(event) {
     if (event.target.matches("button")) {
