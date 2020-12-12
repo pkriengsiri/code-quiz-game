@@ -5,6 +5,8 @@ var quizContentEl = document.getElementById("quiz-content");
 var timerEl = document.getElementById("timer");
 var answerResultSectionEl = document.getElementById("answer-result-content");
 var answerResultEl = document.getElementById("result-text");
+var submitScoreEl = document.getElementById("submit-score");
+var finalScoreEl = document.getElementById("final-score");
 
 
 // JS Variables
@@ -136,10 +138,8 @@ function displayResult(result) {
     resultTimer = 1;
 }
 
-
 function processQuizAnswer(event) {
     if (event.target.matches("button")) {
-        console.log("Clicked on a quiz answer");
         //Remove number from answer selection
         var answer = event.target.textContent.substring(3);
 
@@ -148,7 +148,7 @@ function processQuizAnswer(event) {
             checkAnswer(answer);
             endOfQuiz = true;
             // go to the final score tally
-            alert("end of quiz");
+            endQuiz();
         } else {
             //process the answer
             checkAnswer(answer);
@@ -157,6 +157,12 @@ function processQuizAnswer(event) {
             showQuizQuestion(questionIndex);
         }
     }
+}
+
+function endQuiz() {
+    quizContentEl.hidden = "true";
+    submitScoreEl.removeAttribute("hidden");
+    finalScoreEl.textContent = secondsLeft;
 }
 
 // Function Calls
