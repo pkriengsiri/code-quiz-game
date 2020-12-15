@@ -44,6 +44,8 @@ Collaborators on this project included instructional staff, TAs, and students in
 
 * https://www.w3schools.com/tags/att_hidden.asp 
 
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort 
+
 ## License
 
 MIT License

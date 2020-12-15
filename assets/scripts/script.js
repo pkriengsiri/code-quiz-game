@@ -9,6 +9,8 @@ var submitScoreEl = document.getElementById("submit-score");
 var finalScoreEl = document.getElementById("final-score");
 var initialsInputEl = document.getElementById("initials-input");
 var submitScoreButtonEl = document.getElementById("submit-score");
+var correctAnswersEl = document.getElementById("correct-answers");
+var incorrectAnswersEl = document.getElementById("incorrect-answers");
 
 // JS Variables
 var quizQuestion1 = {
@@ -105,6 +107,8 @@ var endOfQuiz = false; // tracks if all quiz questions have been answered
 var resultTimer = 1; // number of seconds to display the answer result
 var userScore = ""; // stores the final user score
 var userInitials = ""; //stores the user initials
+var numberCorrect = 0; // stores the number of correct answers
+var numberIncorrect = 0; // stores the number of incorrect answers
 var scoresArray = []; // stores the user initial/ score pairs so they can be used by localStorage
 var scoresArrayObj = []; // stores the user initial/ score pairs so they can be used by localStorage
 
@@ -167,10 +171,14 @@ function checkAnswer(answer) {
   if (answer === questionsArray[questionIndex].correctAnswer) {
     // Run display function to alert user of answer result
     var result = true;
+    // Add to the correct answer count
+    numberCorrect++;
     displayResult(result);
   } else {
     // Run display function to alert user of answer result
     var result = false;
+    // Add to the incorrect answer count
+    numberIncorrect++;
     displayResult(result);
     //subtract 10 seconds from time
     secondsLeft = secondsLeft - 10;
@@ -231,6 +239,9 @@ function endQuiz() {
   // Show the quiz results content and user initials submission
   submitScoreEl.removeAttribute("hidden");
   finalScoreEl.textContent = secondsLeft;
+  correctAnswersEl.textContent = numberCorrect;
+  incorrectAnswersEl.textContent = numberIncorrect;
+
 }
 
 function saveScore(event) {
