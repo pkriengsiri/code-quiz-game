@@ -6,6 +6,7 @@ The application is an HTML-based coding quiz game.  The content is dynamically g
 
 ### Features
 * Ten coding-related multiple choice questions
+* Questions are displayed in a random order using the [Knuth shuffle method](https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array)
 * Buttons which allow the user to select an answer
 * Text prompts in the browser window which tell the user if the selected answer was correct of incorrect
 * Countdown timer which tracks the user time/ score
@@ -45,6 +46,8 @@ Collaborators on this project included instructional staff, TAs, and students in
 * https://www.w3schools.com/tags/att_hidden.asp 
 
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort 
+
+* https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array 
 
 ## License
 

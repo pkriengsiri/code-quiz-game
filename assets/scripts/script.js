@@ -118,6 +118,7 @@ function startQuiz() {
   // Clear the starting content, start the clock, then show the first quiz question
   startContentEl.hidden = "true";
   startClock();
+  shuffle(questionsArray);
   showQuizQuestion(0);
 }
 
@@ -241,7 +242,6 @@ function endQuiz() {
   finalScoreEl.textContent = secondsLeft;
   correctAnswersEl.textContent = numberCorrect;
   incorrectAnswersEl.textContent = numberIncorrect;
-
 }
 
 function saveScore(event) {
@@ -265,6 +265,27 @@ function saveScore(event) {
   }
 
   window.location.href = "./highscores.html";
+}
+
+// Function to shuffle the random questions array using the Knuth Shuffle method.  Code is taken from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+function shuffle(array) {
+  var currentIndex = array.length,
+    temporaryValue,
+    randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
 }
 
 // Function Calls
