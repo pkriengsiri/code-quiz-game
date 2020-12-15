@@ -106,6 +106,8 @@ var resultTimer = 1; // number of seconds to display the answer result
 var userScore = ""; // stores the final user score
 var userInitials = ""; //stores the user initials
 var scoresArray = []; // stores the user initial/ score pairs so they can be used by localStorage
+var scoresArrayObj = []; // stores the user initial/ score pairs so they can be used by localStorage
+
 
 // Function Definitions
 
@@ -204,6 +206,7 @@ function displayResult(result) {
 }
 
 function processQuizAnswer(event) {
+  console.log(event.target);
   if (event.target.matches("button")) {
     //Remove number from answer selection
     var answer = event.target.textContent.substring(3);
@@ -236,19 +239,37 @@ function saveScore(event) {
   event.preventDefault();
   var userInitials = initialsInputEl.value;
   var finalScore = finalScoreEl.textContent;
-  var scoreAndInitials = finalScore + " " + userInitials;
+  var scoreAndInitialsObj = {name:"", score: 0}
+
+  //var scoreAndInitials = finalScore + " " + userInitials;
+  scoreAndInitialsObj.name = userInitials;
+  scoreAndInitialsObj.score = finalScore;
+
+  // if (localStorage.getItem("saved-scores") === null) {
+  //   // See if there are previous scores, if not store the score
+  //   scoresArray.push(scoreAndInitials);
+  //   localStorage.setItem("saved-scores", JSON.stringify(scoresArray));
+  // } else {
+  //   // Get previous scores and store them in scoresArray, add the new score, then save in localStorage
+  //   scoresArray = JSON.parse(localStorage.getItem("saved-scores"));
+  //   scoresArray.push(scoreAndInitials);
+  //   localStorage.setItem("saved-scores", JSON.stringify(scoresArray));
+  //   console.log(scoresArray);
+  // }
+
+
 
   if (localStorage.getItem("saved-scores") === null) {
     // See if there are previous scores, if not store the score
-    scoresArray.push(scoreAndInitials);
-    localStorage.setItem("saved-scores", JSON.stringify(scoresArray));
+    scoresArrayObj.push(scoreAndInitialsObj);
+    localStorage.setItem("saved-scores", JSON.stringify(scoresArrayObj));
   } else {
     // Get previous scores and store them in scoresArray, add the new score, then save in localStorage
-    scoresArray = JSON.parse(localStorage.getItem("saved-scores"));
-    scoresArray.push(scoreAndInitials);
-    localStorage.setItem("saved-scores", JSON.stringify(scoresArray));
-    console.log(scoresArray);
+    scoresArrayObj = JSON.parse(localStorage.getItem("saved-scores"));
+    scoresArrayObj.push(scoreAndInitialsObj);
+    localStorage.setItem("saved-scores", JSON.stringify(scoresArrayObj));
   }
+
 
   window.location.href = "./highscores.html";
 }
