@@ -5,38 +5,13 @@ var scoreListEl = document.getElementById("score-list");
 
 // Variables
 var scoresArray = []; // scores array with strings from localStorage
-var scoresArrayInt = []; // scores array with scores coverted to int for sorting
+var scoresArrayInt = []; // scores array with scores converted to int for sorting
 
 // Function definition
 
 function returnToStart() {
   window.location.href = "./index.html";
 }
-
-// function displayScores() {
-//   if (localStorage.getItem("saved-scores") === null) {
-//     emptyScoreDisplay();
-//   } else {
-//     // Saved localStorage string as an array
-//     scoresArray = JSON.parse(localStorage.getItem("saved-scores"));
-//     //for(var i = 0)
-//     scoresArray.sort();
-//     console.log(scoresArray);
-//     scoresArray.reverse();
-//     console.log(scoresArray);
-
-// for (var i = 0; i < scoresArray.length; i++) {
-//   var liEl = document.createElement("li");
-//   var pair = scoresArray[i].split(" ");
-//   var questionNum = i + 1;
-//   liEl.textContent = questionNum + ". " + pair[1] + " - " + pair[0];
-//   liEl.classList.add("list-group-item");
-//   liEl.classList.add("list-group-item-action");
-//   liEl.classList.add("list-group-item-primary");
-//   scoreListEl.append(liEl);
-//     }
-//   }
-// }
 
 function displayScores() {
   // Convert localStorage string to an array
@@ -63,7 +38,11 @@ function displayScores() {
       var liEl = document.createElement("li");
       var ranking = i + 1;
       liEl.textContent =
-        ranking + ". " + scoresArrayInt[i].name + " - " + scoresArrayInt[i].score;
+        ranking +
+        ". " +
+        scoresArrayInt[i].name +
+        " - " +
+        scoresArrayInt[i].score;
       liEl.classList.add("list-group-item");
       liEl.classList.add("list-group-item-action");
       liEl.classList.add("list-group-item-primary");
@@ -72,9 +51,10 @@ function displayScores() {
   }
 }
 
-
 function emptyScoreDisplay() {
+  // Clear the scores
   scoreListEl.innerHTML = "";
+  // Create a new line that says there are no scores to display
   var liEl = document.createElement("li");
   liEl.classList.add("list-group-item");
   liEl.classList.add("list-group-item-action");
