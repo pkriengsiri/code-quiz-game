@@ -6,13 +6,13 @@ The application is an HTML-based coding quiz game.  The content is dynamically g
 
 ### Features
 * Ten coding-related multiple choice questions
-* Questions are displayed in a random order using the [Knuth shuffle method](https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array)
-* Buttons which allow the user to select an answer
-* Text prompts in the browser window which tell the user if the selected answer was correct of incorrect
-* Countdown timer which tracks the user time/ score
-* Penalty system that subtracts 10 seconds from the user score if an incorrect answer is selected
-* Results page which display the user scores and allows the user to submit their first name or initials for a high score list
-* A high score page which displays a list of the user's high scores, and allows the users to clear the scores from the page and localStorage
+* Questions are displayed in a random order
+* Buttons allow the user to select an answer
+* Text prompts in the browser window which the user if the selected answer was correct of incorrect
+* Countdown timer tracks the user time/ score
+* Penalty system subtracts 10 seconds from the user score if an incorrect answer is selected
+* Results page displays the user scores and allows the user to submit their first name or initials for a high score list
+* A high score page displays a list of the user's high scores in descending order, and allows the users to clear the scores from the page and localStorage
 
 ## Installation
 Upload index.html, highscores.html, license.txt, and assets folder to the deployed webserver.  Assets folder contains JavaScript and CSS files.
@@ -45,9 +45,11 @@ Collaborators on this project included instructional staff, TAs, and students in
 
 * https://www.w3schools.com/tags/att_hidden.asp 
 
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort 
 
-* https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array 
+### Code Snippets Utilized
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort (adapted example for sorting an array of objects) 
+
+* https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array (function for performing shuffle on an array from user CoolAJ86)
 
 ## License
 
